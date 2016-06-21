@@ -1,4 +1,7 @@
 [![](https://jitpack.io/v/jgabrielfreitas/DataControllerDemo.svg)](https://jitpack.io/#jgabrielfreitas/DataControllerDemo) [![](https://img.shields.io/badge/Language%20-Java-4682b4.svg)](https://jitpack.io/#jgabrielfreitas/DataControllerDemo)
+[![](https://img.shields.io/apm/l/vim-mode.svg?maxAge=2592000)]()
+[![](https://img.shields.io/badge/API-%2B%2017-lightgrey.svg)]()
+[![](https://img.shields.io/badge/Android-4.2-green.svg)]()
 ![InjectLayout](imgs/BlurImageView-header.png)
 
 ## How to
