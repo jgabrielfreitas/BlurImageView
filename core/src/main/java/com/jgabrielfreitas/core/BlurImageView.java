@@ -56,8 +56,7 @@ public class BlurImageView extends ImageView {
 
             Integer radius = typedArray.getInteger(R.styleable.BlurImageView_radius, 0);
 
-            if (radius != 0)
-                setBlur(radius);
+            setBlur(radius);
 
             typedArray.recycle();
         }
