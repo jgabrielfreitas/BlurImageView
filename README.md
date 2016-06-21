@@ -36,6 +36,19 @@ dependencies {
 
 **You can add blur at your photo using `radius` in layout XML or use  `.setBlur(INTEGER_VALUE)`**
 
+### Sample
+
+Your layout
+![InjectLayout](imgs/example_1.png)
+
+Now calling `.setBlur(20)`
+![InjectLayout](imgs/example_2.png)
+
+
+### :warning: IMPORTANT
+**MAX_RADIUS = 25**
+**MIN_RADIUS = 1**
+
 ## License
 ```
 The MIT License (MIT)

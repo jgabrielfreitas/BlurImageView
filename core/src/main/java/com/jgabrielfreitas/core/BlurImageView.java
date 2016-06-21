@@ -20,8 +20,8 @@ public class BlurImageView extends ImageView {
 
 
     private float defaultBitmapScale = 0.1f;
-    private static final int   MAX_RADIUS   = 25;
-    private static final int   MIN_RADIUS   = 1;
+    private static final int MAX_RADIUS = 25;
+    private static final int MIN_RADIUS = 1;
     Drawable imageOnView;
 
 
