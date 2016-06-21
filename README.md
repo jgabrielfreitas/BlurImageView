@@ -39,14 +39,17 @@ dependencies {
 ### Sample
 
 Your layout
-![InjectLayout](imgs/example_1.png)
+
+<img src="imgs/example_1.png" width="300">
 
 Now calling `.setBlur(20)`
-![InjectLayout](imgs/example_2.png)
+
+<img src="imgs/example_2.png" width="300">
 
 
 ### :warning: IMPORTANT
 **MAX_RADIUS = 25**
+
 **MIN_RADIUS = 1**
 
 ## License
