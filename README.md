@@ -37,7 +37,7 @@ dependencies {
         android:src="@drawable/little_dog" />
 ```
 
-**You can add blur at your photo using `radius` in layout XML or use  `.setBlur(INTEGER_VALUE)`**
+**You can add blur at your photo using `radius` in layout XML or using  `.setBlur(INTEGER_VALUE)`** method 
 
 ### Sample
 
