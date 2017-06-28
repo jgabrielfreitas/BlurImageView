@@ -9,19 +9,21 @@ import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.widget.ImageView;
 
 /**
  * Created by JGabrielFreitas on 20/06/16.
  */
-public class BlurImageView extends ImageView {
+public class BlurImageView extends AppCompatImageView {
 
 
     private float defaultBitmapScale = 0.1f;
     private static final int MAX_RADIUS = 25;
     private static final int MIN_RADIUS = 1;
+    int width = 0;
+    int height = 0;
     Drawable imageOnView;
 
 
@@ -40,9 +42,14 @@ public class BlurImageView extends ImageView {
         init(attrs);
     }
 
+    @Override public void setImageBitmap(Bitmap bm) {
+        super.setImageBitmap(bm);
+        setImageDrawable(new BitmapDrawable(getResources(), bm));
+    }
+
     public void setImageDrawable(Drawable drawable) {
         super.setImageDrawable(drawable);
-        if (imageOnView == null)
+        //if (imageOnView == null)
             imageOnView = drawable;
     }
 
@@ -87,18 +94,18 @@ public class BlurImageView extends ImageView {
             Log.e("BLUR", "actualRadius invalid: " + radius);
     }
 
-    public Bitmap blurRenderScript(Bitmap smallBitmap, int radius) {
+    private Bitmap blurRenderScript(Bitmap smallBitmap, int radius) {
 
         int width  = Math.round(smallBitmap.getWidth() * defaultBitmapScale);
         int height = Math.round(smallBitmap.getHeight() * defaultBitmapScale);
 
-        Bitmap inputBitmap = Bitmap.createScaledBitmap(smallBitmap, width, height, false);
+        Bitmap inputBitmap  = Bitmap.createScaledBitmap(smallBitmap, width, height, false);
         Bitmap outputBitmap = Bitmap.createBitmap(inputBitmap);
 
-        RenderScript rs = RenderScript.create(getContext());
-        ScriptIntrinsicBlur theIntrinsic = ScriptIntrinsicBlur.create(rs, Element.U8_4(rs));
-        Allocation tmpIn = Allocation.createFromBitmap(rs, inputBitmap);
-        Allocation tmpOut = Allocation.createFromBitmap(rs, outputBitmap);
+        RenderScript renderScript = RenderScript.create(getContext());
+        ScriptIntrinsicBlur theIntrinsic = ScriptIntrinsicBlur.create(renderScript, Element.U8_4(renderScript));
+        Allocation tmpIn = Allocation.createFromBitmap(renderScript, inputBitmap);
+        Allocation tmpOut = Allocation.createFromBitmap(renderScript, outputBitmap);
         theIntrinsic.setRadius(radius);
         theIntrinsic.setInput(tmpIn);
         theIntrinsic.forEach(tmpOut);
